@@ -7,6 +7,9 @@
 2. 모두가 찾아보는 로봇공학 팔만대장경 만들기
 
 ## 파일 구조 안내
+- 대단원<br>
+> - 1. AI
+> - 2. ROS2
 > .MD(MarkDown) 파일은 개념정리 위주로 작성했고 가시성을 위해 pdf파일로 변환해서 보시길 추천드립니다.
 
 ## 실습 환경
@@ -15,5 +18,12 @@ MacBook Pro(Apple M3 Pro, 18GB) -> 따라서 'cuda'가 아닌 'mps'를 사용했
 만약, colab과 같은 엔비디아 환경에서 작업한다면 'cuda'로 변경해서 코드 사용하면 됩니다<br>
 (고성능 작업의 경우 colab 환경에서 실습했습니다)
 
+### 작업 환경
+- ROS2
+> ROS2 Jazzy
+> Ubuntu 24.04 LTS
+UTM 가상환경에서 작업했습니다.
+
 ### 프레임워크
-PyTorch(https://pytorch.org/)
+PyTorch(https://pytorch.org)
+ROS2(https://www.ros.org)
