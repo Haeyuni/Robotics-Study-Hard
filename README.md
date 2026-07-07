@@ -23,6 +23,7 @@ MacBook Pro(Apple M3 Pro, 18GB) -> 따라서 'cuda'가 아닌 'mps'를 사용했
 - ROS2
 > ROS2 Jazzy<br>
 > Ubuntu 24.04 LTS<br>
+
 UTM 가상환경에서 작업했습니다.
 
 ### 프레임워크
