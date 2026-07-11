@@ -571,3 +571,159 @@ ros2 bag info <bag_directory>
 ```
 
 ---
+
+# Interface
+
+### 정의
+
+> [!NOTE]
+> Interface는 ROS2에서 노드들이 서로 주고받는 데이터의 형식(Data Type)을 정의한 것이다.<br>
+> Topic, Service, Action은 모두 Interface를 기반으로 통신하며 서로 같은 Interface를 사용해야 정상적으로 데이터를 주고받을 수 있다.<br>
+
+- 특징<br>
+
+> - Topic, Service, Action의 데이터 형식을 정의
+> - 통신 전에 송신자와 수신자가 동일한 Interface를 사용해야 함
+> - Message, Service, Action 세 가지 형태로 구성
+> - 사용자 정의 Interface(Custom Interface) 생성 가능
+
+### 구성
+
+```text
+                 Interface
+                     │
+        ┌────────────┼────────────┐
+        ▼            ▼            ▼
+     Message      Service      Action
+       (.msg)       (.srv)       (.action)
+```
+
+### 종류
+
+#### Message (.msg)
+
+> [!TIP]
+> Topic에서 사용하는 데이터 형식이다.<br>
+> Publisher와 Subscriber가 동일한 Message를 사용해야 한다.
+
+예시
+
+```text
+geometry_msgs/msg/Twist
+
+linear
+ ├── x
+ ├── y
+ └── z
+
+angular
+ ├── x
+ ├── y
+ └── z
+```
+
+사용 예시
+
+> 센서 데이터, 속도(cmd_vel), 위치(Pose), 이미지(Image), PointCloud 등
+
+---
+
+#### Service (.srv)
+
+> [!TIP]
+> Service에서 사용하는 데이터 형식이다.<br>
+> Request와 Response 두 부분으로 구성된다.
+
+예시
+
+```text
+int64 a
+int64 b
+---
+int64 sum
+```
+
+사용 예시
+
+> 계산 요청, 센서 초기화, 지도 저장, 설정 변경 등
+
+---
+
+#### Action (.action)
+
+> [!TIP]
+> Action에서 사용하는 데이터 형식이다.<br>
+> Goal, Result, Feedback 세 부분으로 구성된다.
+
+예시
+
+```text
+# Goal
+int32 order
+---
+# Result
+int32[] sequence
+---
+# Feedback
+int32[] partial_sequence
+```
+
+사용 예시
+
+> Navigation, 경로 계획, 장시간 작업, 로봇 팔 제어 등
+
+### 동작 관계
+
+```text
+                Interface
+                     │
+     ┌───────────────┼────────────────┐
+     ▼               ▼                ▼
+  Topic          Service          Action
+     │               │                │
+  Message        Request/         Goal/
+   (.msg)        Response      Feedback/
+                  (.srv)        Result
+                               (.action)
+```
+
+### 터미널 예시
+
+인터페이스 목록 확인
+
+```bash
+ros2 interface list
+```
+
+인터페이스 패키지 확인
+
+```bash
+ros2 interface package geometry_msgs
+```
+
+메시지 정의 확인
+
+```bash
+ros2 interface show geometry_msgs/msg/Twist
+```
+
+서비스 정의 확인
+
+```bash
+ros2 interface show example_interfaces/srv/AddTwoInts
+```
+
+액션 정의 확인
+
+```bash
+ros2 interface show example_interfaces/action/Fibonacci
+```
+
+### 사용 예시
+
+> Topic은 Message(.msg)를 사용하고,<br>
+> Service는 Service(.srv)를 사용하며,<br>
+> Action은 Action(.action)을 사용한다.<br>
+> 즉, 모든 ROS2 통신은 Interface를 기반으로 이루어진다.
+
+---
