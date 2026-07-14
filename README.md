@@ -18,7 +18,13 @@
 ### 대단원
 
 - AI
+  - 선형회귀(LinearRegression)
+  - 손실 함수(Loss Function)
+  - 최적화 함수(Optimizer Function)
 - ROS2
+  - Topic(토픽)
+  - Service(서비스)
+  - Action(액션)
 
 > `.md`(Markdown) 파일은 개념 정리 위주로 작성했습니다.  
 > 가독성을 위해 PDF로 변환하여 보는 것을 추천드립니다.
