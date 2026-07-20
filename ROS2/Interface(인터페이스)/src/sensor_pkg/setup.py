@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'my_first_pkg'
+package_name = 'sensor_pkg'
 
 setup(
     name=package_name,
@@ -16,7 +16,7 @@ setup(
     maintainer='haeyun',
     maintainer_email='haeyun@todo.todo',
     description='TODO: Package description',
-    license='Apache-2.0',
+    license='TODO: License declaration',
     extras_require={
         'test': [
             'pytest',
