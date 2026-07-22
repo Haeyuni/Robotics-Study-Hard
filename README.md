@@ -64,3 +64,4 @@
 
 ### 추천 플러그인
 - Material Icon Theme: `VS Code`에서 사용 가능, ROS2는 파일 구조가 복잡해서 헷갈리는데 해당 플러그인으로 쉽게 시각적으로 파일 구분 가능합니다!!
+- Robot Developer Extensions for ROS 2: `VS Code`에서 사용 가능, ROS2는 경로를 잘 찾지 못해 자동완성과 같은 편의기능이 잘 동작하지 않는데 해당 플러그인을 사용하면 편하게 사용할 수 있습니다!
